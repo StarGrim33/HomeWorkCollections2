@@ -42,17 +42,20 @@
 
         static void FillPurchases(Queue<int> purchases, string userInput, ref int cash)
         {
-            int input = System.Convert.ToInt32(userInput);
-            
-            if (purchases.Contains(input))
+            int convertStringToNumber = 0;
+
+            if (int.TryParse(userInput, out convertStringToNumber))
             {
-                purchases.Dequeue();
-                Console.WriteLine("Покупка на " + userInput + " подтверждена");
-                cash += Convert.ToInt32(userInput);
-            }
-            else
-            {
-                Console.WriteLine("Такой суммы нет");
+                if (purchases.Contains(convertStringToNumber))
+                {
+                    purchases.Dequeue();
+                    Console.WriteLine("Покупка на " + userInput + " подтверждена");
+                    cash += Convert.ToInt32(userInput);
+                }
+                else
+                {
+                    Console.WriteLine("Такой суммы нет");
+                }
             }
         }
 
