@@ -42,11 +42,11 @@
 
         static void FillPurchases(Queue<int> purchases, string userInput, ref int cash)
         {
-            int convertStringToNumber = 0;
+            int integerUserInput = 0;
 
-            if (int.TryParse(userInput, out convertStringToNumber))
+            if (int.TryParse(userInput, out integerUserInput))
             {
-                if (purchases.Contains(convertStringToNumber))
+                if (purchases.Contains(integerUserInput))
                 {
                     purchases.Dequeue();
                     Console.WriteLine("Покупка на " + userInput + " подтверждена");
